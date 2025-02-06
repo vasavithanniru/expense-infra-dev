@@ -4,12 +4,12 @@ pipeline{
     }
     options {
         timeout(time: 30, unit: 'MINUTES')
-        disbleConcurrentBuilds()
+        disableConcurrentBuilds()
         ansiColor('xterm')
     }
 
     parameters{
-        choice(name: 'ACTION', choices['apply', 'destroy'], description: 'Select Action')
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select Action')
     }
     stages{
         stage('init and plan'){
@@ -42,25 +42,24 @@ pipeline{
 
         stage('Trigger next job 10-sg'){
             when {
-                expression { params.action == 'apply'}
+                expression { params.ACTION == 'apply'}
             }    
             steps{
-                build job: '10-sg', parameters: [string(name: 'Action', value: 'apply')], wait: false
+                build job: '10-sg', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
             }
 
         }
-        post{
-            always{
-                echo "This section runs always"
-                deleteDir()
-            }
-            success{
-                echo "This section run when pipeline success"
-            }
-            failure{
-                echo "This section run when pipeline failure"
-            }
+    }    
+    post{
+        always{
+            echo "This section runs always"
+            deleteDir()
+        }
+        success{
+            echo "This section run when pipeline success"
+        }
+        failure{
+            echo "This section run when pipeline failure"
         }
     }
 }
-
