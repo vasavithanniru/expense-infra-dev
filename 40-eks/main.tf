@@ -1,6 +1,7 @@
 resource "aws_key_pair" "eks" {
   key_name   = "eks"
-  public_key = file("~/.ssh/eks.pub")
+  # public_key = file("~/.ssh/eks.pub")
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDGWY54Wbw4089PrMtJksUGfjY94feMUkW+ZuOTFP+YGWX+FliuS4v26zeQLJNVxc7N23uJFRE3Sg4m5+MJdlzRHCeNgk0O/j1PUi7bnwGDmPTljNqdDSraNZVcQ1MQYXh01uBCwXAB9cjNVIoKbWpXTwz3HmqkjGebvGRZUXmhHN+IadenBIRFEKAOMi8QZkv08eBhHd40g13oyZeOBqbsgrR6TbdkRAPfMV8daD/W7eS1A+bbx62u5PeH0N57PrVw8KDjlX0Rr7NOtK17M9in5kYLhuLkBjZNlAz3iKW34H2XgrmDlcSJWtEDiK+XimtC5hJX0b5pC9/4fDUlaaX+cCNC9gFUUu/BPgimVxhHXWwMPN8t1f+4qfVId47pSBEaXZsMlErOOV6eAIR5utX4pHkWvkuBY5KrhtivqQ8E4RSJyRQlpf3glxR/14uORcdyXcR783l1/bLlRBowRV5NeXDUvLWYwskAOps0c2l6urqNIWp6IacpC1y0LE7zuys= DELL@DESKTOP-LAT2UG4"
 }
 
 module "eks" {
