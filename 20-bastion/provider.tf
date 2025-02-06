@@ -8,9 +8,9 @@ terraform {
 
   backend "s3" {
     bucket = "vasavi-bucket-dev"
-    key = "expense-bastion"
+    key = "expense-bastion-dev"
     region = "us-east-1"
-    dynamodb_table = "vasavi-table"
+    dynamodb_table = "vasavi-table-dev"
   }
 }
 

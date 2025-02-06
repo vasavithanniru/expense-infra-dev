@@ -12,7 +12,7 @@ pipeline{
         choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select Action')
     }
     stages{
-        stage('init and plan'){
+        stage('Terraform init and plan'){
             steps{
                 withAWS(region: 'us-east-1', credentials: 'aws-creds'){
                     sh """
@@ -23,7 +23,7 @@ pipeline{
                 }
             }
         }
-        stage('Apply or Destroy'){
+        stage('Terraform Apply or Destroy'){
             steps{
                 withAWS(region: 'us-east-1', credentials: 'aws-creds'){
                     sh """

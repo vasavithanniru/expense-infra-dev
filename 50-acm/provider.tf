@@ -10,7 +10,7 @@ terraform {
     bucket = "vasavi-bucket-dev"
     key = "expense-dev-acm"
     region = "us-east-1"
-    dynamodb_table = "vasavi-table"
+    dynamodb_table = "vasavi-table-dev"
   }
 }
 

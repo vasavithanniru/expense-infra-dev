@@ -9,7 +9,7 @@ terraform {
     bucket         = "vasavi-bucket-dev"
     key            = "expense-sg-dev"
     region         = "us-east-1"
-    dynamodb_table = "vasavi-table"
+    dynamodb_table = "vasavi-table-dev"
   }
 }
 provider "aws" {
